@@ -1,12 +1,29 @@
-- name: Katalon Studio
-  # You may pin to the exact commit or the version.
-  # uses: katalon-studio/katalon-studio-github-action@be2054d332ea7110bf9b33d6832939974d0e9b31
-  uses: katalon-studio/katalon-studio-github-action@v4.0
-  with:
-    # Which version of Katalon Studio to run
-    version: # default is 
-    # Where the Katalon Studio project is checked out
-    projectPath: # default is 
-    # What arguments to run Katalon Studio project
-    args: # default is 
+name: SonarCloud analysis
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Katalon Studio
+        # You may pin to the exact commit or the version.
+        # uses: katalon-studio/katalon-studio-github-action@be2054d332ea7110bf9b33d6832939974d0e9b31
+        uses: katalon-studio/katalon-studio-github-action@v4.0
+        with:
+          # Which version of Katalon Studio to run
+          version: # default is 
+          # Where the Katalon Studio project is checked out
+          projectPath: # default is 
+          # What arguments to run Katalon Studio project
+          args: # default is 
           
