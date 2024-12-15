@@ -1,4 +1,4 @@
-name: SonarCloud analysis
+name: Katalon-studio analysis
 on:
   push:
     branches: [ "main" ]
