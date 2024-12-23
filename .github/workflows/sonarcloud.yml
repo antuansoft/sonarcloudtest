@@ -42,8 +42,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Analyze with SonarCloud
+      - uses: actions/checkout@v4
+        with:
+          # Disabling shallow clones is recommended for improving the relevancy of reporting
+          fetch-depth: 0
 
+      - name: Analyze with SonarCloud
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarcloud-github-action@v2.2.0
         uses: SonarSource/sonarqube-scan-action@v4.0.0
